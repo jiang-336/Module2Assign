@@ -1,0 +1,20 @@
+{
+  "name": "demo-api-project",
+  "version": "0.0.1",
+  "description": "This is a demo",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "API",
+    "Demo",
+    "Session"
+  ],
+  "author": "Lei Jiang <lei.j@tcs.com>",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.1.1",
+    "express": "^4.17.1"
+  }
+}

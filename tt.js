@@ -9,19 +9,19 @@ const rl = readline.createInterface({
 
 var array = fs.readFileSync('filenames.txt').toString().split("\n");
 
+readInput('Enter a filename: ');
 
-
-function ifFileExists(fileName) {
+function checkFile(fileName) {
     if (array.includes(fileName)) {
         return true;
     }
     else return false;
 }
 
-function askForUserInput(message) {
+function readInput(message) {
     rl.question(message, (fileName) => {
-        if (ifFileExists(fileName)) {
-            askForUserInput('File already exists, Please provide a new filename: ');
+        if (checkFile(fileName)) {
+            readInput('Filename is taken, enter a new filename: ');
         } else {
             writeToFile(fileName);
             rl.close();
@@ -32,19 +32,17 @@ function askForUserInput(message) {
 function writeToFile(fileName) {
     fs.appendFile('filenames.txt', fileName + '\n', err => {
         if (err) {
-            console.log('Error occured');
+            console.log('Error!');
             return;
         }
         fs.writeFile(fileName, 'You are awesome', err => {
             if (err) {
-                console.log('Error occured');
+                console.log('Error!');
                 return
             }
         });
     });
 }
-
-askForUserInput('Please provide the filename:=>');
 
 
 
