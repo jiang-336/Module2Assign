@@ -4,7 +4,7 @@ const argv = require('yargs').argv;
 const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
-});
+}); 
 
 
 var array = fs.readFileSync('filenames.txt').toString().split("\n");
@@ -23,13 +23,13 @@ function readInput(message) {
         if (checkFile(fileName)) {
             readInput('Filename is taken, enter a new filename: ');
         } else {
-            writeToFile(fileName);
+            write(fileName);
             rl.close();
         }
     });
 }
 
-function writeToFile(fileName) {
+function write(fileName) {
     fs.appendFile('filenames.txt', fileName + '\n', err => {
         if (err) {
             console.log('Error!');
